@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+@-webkit-keyframes myanimation {
+	0% {
+	color:green;
+	margin-top:900px;
+	-webkit-transform:rotate(45deg);
+	}
+	25% {color:red;
+	margin-top:900px;
+	-webkit-transform:rotate(90deg);
+	}
+	50%  {color:blue;}
+}
+
+@-webkit-keyframes mymove
+{
+0%   {top:0px;}
+25%  {top:200px;}
+50%  {top:100px;}
+75%  {top:200px;}
+100% {top:0px;}
+}
+
+div {
+	-webkit-animation:myanimation 10s infinite;
+}

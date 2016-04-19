@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts SYSTEM "file:/D:\dtds\struts2.3.dtd">
+
+<struts>
+
+<constant name="struts.custom.i18n.resources" value="mesgs" />
+	<package name="test123" namespace="/" extends="struts-default">
+		<!-- global mapping for pass thro action for default / namespace-->
+		<action name="*">
+			<result>{1}.jsp</result>
+		</action>
+
+	</package>
+
+<package name="test1" namespace="/stud" extends="struts-default">
+	<action name="*">
+		<result>{1}.jsp</result>
+	</action>
+	<action name="stud_process_registration" class="com.app.actions.StudentActionClass"
+		method="registerStudent">
+		<result>studloginSuccess.jsp</result>
+		<result name="error">invalid.jsp</result>
+	</action>
+	<action name="stud_process_login" class="com.app.actions.StudentActionClass"
+		method="validateStudent">
+		<result>studloginSuccess.jsp</result>
+		<result name="error">invalid.jsp</result>
+		<result name="input">register.jsp</result>
+	</action>
+	<action name="logout" class="com.app.actions.StudentActionClass"
+		method="logOut">
+		<result>login.jsp</result>
+		<result name="error">invalid.jsp</result>
+	</action>
+	<action name="stud_academics" class="com.app.actions.StudentActionClass"
+		method="registerStudentAcademics">
+		<result>studloginSuccess.jsp</result>
+		<result name="error">invalid.jsp</result>
+		<result name="input">register.jsp</result>
+	</action>
+	<action name="postMessage" class="com.app.actions.StudentActionClass" method="dummy">
+			<result>dummy.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+	<action name="File_Details" class="com.app.actions.StudentActionClass" method="filewritemethod">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+	<action name="pdf_Details" class="com.app.actions.StudentActionClass" method="filePdfMethod">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+	<action name="mail" class="com.app.actions.StudentActionClass" method="sendingMail">
+			<result>mailsend.jsp</result>
+	</action>
+	<action name="stud_academic_registration" class="com.app.actions.AcademicActionClass" method="updateAcademic">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>	
+	<action name="stud_address_registration" class="com.app.actions.AddressActionClass" method="updateAddress">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>	
+	<action name="stud_personal_registration" class="com.app.actions.PresonalActionClass" method="updatePersonalInfo">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>	
+	<action name="stud_Exprience_registration" class="com.app.actions.ExpriencesActionClass" method="updateExprience">
+			<result>studloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>	
+		<action name="process_update" class="com.app.actions.StudentActionClass" method = "uploadImage">
+			<result name="success" >studloginSuccess.jsp</result>
+			<result name="error" >updateDetails.jsp</result>
+<!-- 			<result name="input" >updateDetails.jsp</result>
+ -->			<param name="uploadDest">E:/imgs/</param>
+<!-- 			<param name="eclipseDeployementFolder">C:/Users/User/Documents/eclipse/j2ee/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Day12_struts_hib_modelDrivenArc/imgs/</param>
+ -->
+<param name="eclipseDeployementFolder">D:\FinalFresherBooster\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\deepaksunbeam\stud\imgs\</param>
+ 		</action>
+ 		
+	<action name="list_all_jobs" class="com.app.actions.StudentActionClass" method="listAllJobs">
+		<result>listJob.jsp</result>
+		<result name="error">invalid.jsp</result>
+	</action>	
+
+	<action name="list_job_on_place" class="com.app.actions.StudentActionClass" method="listJobsPlaceWise">
+		<result>listJob.jsp</result>
+		<result name="error">invalid.jsp</result>
+	</action>	 		
+ 	
+ 	   <action name="upload" class="com.app.upload.uploadFile">
+       <result name="success">studloginSuccess.jsp</result>
+       <result name="error">/error.jsp</result>
+   </action>
+ 		
+</package>
+<package name="test12" namespace="/company" extends="struts-default">
+	
+		<action name="process_login" class="com.app.actions.CompanyAction1"
+			method="validateCompany">
+			<result>companyloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- update_post -->
+		<action name="update_post" class="com.app.actions.CompanyAction2"
+			method="updatePost">
+			<result>job_post1.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- update_job -->
+		<action name="update_job" class="com.app.actions.CompanyAction2"
+			method="updateJob">
+			<result>jobs_posted.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- delete_post -->
+		<action name="delete_post" class="com.app.actions.CompanyAction2"
+			method="deletePost">
+			<result>jobs_posted.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- job_post -->
+		<action name="job_post">
+			<result>job_post.jsp</result>
+		</action>
+		
+		<!-- post_the_job -->
+		<action name="post_the_job" class="com.app.actions.CompanyAction2" method="jobPost">
+			<result>job_post.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- job_posted -->
+		<action name="job_posted" class="com.app.actions.CompanyAction2"
+			method="jobPosted">
+			<result>jobs_posted.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- process_register -->
+		<action name="process_register" class="com.app.actions.CompanyActions"
+			method="registerCompany">
+			<result>companylogin.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<!-- log_out -->
+		<action name="log_out" class="com.app.actions.CompanyAction1"
+			method="logout">
+			<result>companylogin.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+	</package>
+<!-- 	Admin action class related actions  -->
+	<package name="test12345" namespace="/admin" extends="struts-default">
+		<action name="*">
+			<result>{1}.jsp</result>
+		</action>
+		<action name="process_login" class="com.app.actions.AdminActionClass"
+			method="validateAdmin">
+			<result>adminloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		<action name="logout" class="com.app.actions.AdminActionClass"
+			method="logoutAdmin">
+			<result>logout.jsp</result>
+		</action>
+		<action name="admin_process_registration" class="com.app.actions.AdminActionClass"
+			method="registerAdmin">
+			<result>adminloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+			<result name="input">adminregistration.jsp</result>
+		</action>
+		<action name="admin_process_login" class="com.app.actions.AdminActionClass"
+			method="validateAdmin">
+			<result>adminloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+			<result name="input">adminregistration.jsp</result>
+		</action>
+		
+		<action name="list_all_students" class="com.app.actions.AdminActionClass"
+			method="studentList">
+			<result>StudentDetails.jsp</result>
+			<result name="error">invalid.jsp</result>
+			<result name="input">adminloginSuccess.jsp</result>
+		</action>
+		
+<!-- 		<action name="list_all_students" class="com.app.actions.AdminActionClass" -->
+<!-- 			method="studentList"> -->
+<!-- 			<result>StudentDetails.jsp</result> -->
+<!-- 			<result name="error">invalid.jsp</result> -->
+<!-- 			<result name="input">adminregistration.jsp</result> -->
+<!-- 		</action> -->
+
+		<action name="students" class="com.app.actions.AdminActionClass"
+			method="listAllStudents">
+			<result>students.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<action name="delete" class="com.app.actions.AdminActionClass"
+			method="deleteStudent">
+			<result name="success" type="chain">students</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<action name="companies" class="com.app.actions.AdminActionClass"
+			method="listAllCompanies">
+			<result>companies.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+				
+		<action name="delete_company" class="com.app.actions.AdminActionClass"
+			method="deleteCompany">
+			<result name="success" type="chain">companies</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		
+		<action name="events" class="com.app.actions.AdminActionClass"
+			method="listAllEvents">
+			<result>events.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<action name="feedback" class="com.app.actions.AdminActionClass"
+			method="listAllFeedback">
+			<result>feedback.jsp</result>
+			<result name="error">invalid.jsp</result>
+		</action>
+		
+		<action name="send_mail" class="com.app.actions.AdminActionClass"
+			method="sendMailToStudent">
+			<result>adminloginSuccess.jsp</result>
+			<result name="error">invalid.jsp</result>
+			<result name="input">adminregistration.jsp</result>
+		</action>
+		<action name="admin_home">
+			<result>adminloginSuccess.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.app.actions.AdminActionClass"
+			method="logoutAdmin">
+			<result>login.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

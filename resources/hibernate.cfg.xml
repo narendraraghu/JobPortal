@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+	<!DOCTYPE hibernate-configuration SYSTEM "file:/D:\dtds\hibernate3.dtd">
+		
+<hibernate-configuration>
+
+	<session-factory>
+
+		<property name="hibernate.connection.autocommit">false</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.password">pankaj</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="hibernate.connection.username">system</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.connection.pool_size">1</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="com.app.POJO.studentPOJO" />
+		<mapping class="com.app.POJO.AdminPojo" />
+		<mapping class="com.app.POJO.Student_personal_informationPojo" />
+		<mapping class="com.app.POJO.AddressPOJO" />
+		<mapping class="com.app.POJO.AcademicsPojo" />		
+		<mapping class="com.app.POJO.ExpriencePojo" />
+		<mapping class="com.app.POJO.ImageWapperPojo" />
+		<mapping class="com.app.POJO.CompanyLoginPOJO"/>
+		<mapping class="com.app.POJO.JobPostPOJO"/>
+		<mapping class="com.app.POJO.CompanyRegistrationPOJO"/>		
+		
+</session-factory>
+</hibernate-configuration>
